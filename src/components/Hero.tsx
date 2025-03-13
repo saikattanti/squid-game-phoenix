@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import CountdownTimer from './CountdownTimer';
+import { Linkedin, Instagram, Facebook } from 'lucide-react';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -27,58 +28,71 @@ const Hero = () => {
   }, []);
   
   return (
-    <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-squid-black bg-squid-texture"></div>
-      <div className="absolute inset-0 bg-gradient-radial from-transparent to-squid-black"></div>
-      <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-squid-pink/10 blur-[150px] rounded-full"></div>
-      <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-squid-red/10 blur-[150px] rounded-full"></div>
+    <section className="min-h-screen relative flex flex-col items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-squid-black"
+        style={{
+          backgroundImage: `url('/lovable-uploads/5333d7ff-2882-4a1c-b528-61b83e621fb5.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
       
-      {/* Content container */}
-      <div className="container mx-auto px-6 z-10 max-w-6xl flex flex-col md:flex-row md:items-center md:justify-between gap-12 mt-20">
-        <div 
-          className={`md:w-3/5 transition-all duration-1000 ease-out transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-          }`}
-        >
-          <div className="inline-block mb-2 rounded-full px-3 py-1 border border-squid-pink/30 text-xs font-medium text-squid-pink">
-            Phoenix 25 Event
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">Let the Game Begin</span>
-          </h1>
-          <p className="text-lg md:text-xl text-squid-white/70 mb-8 max-w-xl">
-            Join the most thrilling tech event of the year. Will you survive the competition and claim the prize?
-          </p>
-          
-          <div className="flex flex-wrap gap-4">
-            <Button
-              variant="primary"
-              onClick={() => navigate('/contact')}
-            >
-              Register
-            </Button>
-            <Button
-              variant="green"
-              onClick={() => navigate('/events')}
-            >
-              Join the Game
-            </Button>
-          </div>
-        </div>
-        
-        <div 
-          className={`md:w-2/5 transition-all duration-1000 ease-out transform ${
-            isVisible ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-20'
-          }`}
-        >
-          <CountdownTimer targetDate={targetDate} />
-        </div>
+      {/* Overlay for better text visibility */}
+      <div className="absolute inset-0 bg-squid-black/30"></div>
+      
+      {/* Logo in top left */}
+      <div className="absolute top-6 left-6 z-20">
+        <img src="/phoenix-logo.png" alt="Phoenix 25" className="w-16 h-16" />
       </div>
       
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-pulse-subtle">
-        <div className="w-0.5 h-16 bg-gradient-to-b from-squid-white/0 to-squid-white/50 rounded-full"></div>
+      {/* Social media icons in top right */}
+      <div className="absolute top-6 right-6 z-20 flex space-x-6">
+        <a href="#" className="text-squid-white hover:text-squid-pink transition-colors">
+          <Linkedin size={24} />
+        </a>
+        <a href="#" className="text-squid-white hover:text-squid-pink transition-colors">
+          <Instagram size={24} />
+        </a>
+        <a href="#" className="text-squid-white hover:text-squid-pink transition-colors">
+          <Facebook size={24} />
+        </a>
+      </div>
+      
+      {/* Centered countdown timer */}
+      <div 
+        className={`z-10 text-center transition-all duration-1000 ease-out transform ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        }`}
+      >
+        <div className="text-7xl md:text-9xl font-mono text-squid-white mb-8 tracking-wider">
+          <CountdownTimer targetDate={targetDate} />
+        </div>
+        
+        <h1 className="text-5xl md:text-8xl font-bold text-squid-white tracking-widest uppercase mb-12">
+          Phoenix'25
+        </h1>
+        
+        <div className="flex flex-wrap justify-center gap-6 mt-8">
+          <Button
+            variant="primary"
+            size="lg"
+            onClick={() => navigate('/contact')}
+            className="uppercase tracking-wider"
+          >
+            Register
+          </Button>
+          <Button
+            variant="green"
+            size="lg"
+            onClick={() => navigate('/events')}
+            className="uppercase tracking-wider"
+          >
+            Explore
+          </Button>
+        </div>
       </div>
     </section>
   );
