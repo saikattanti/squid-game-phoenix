@@ -1,147 +1,69 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
-import { MapPin, Mail, Phone, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Instagram, Linkedin } from 'lucide-react';
+
+const teamMembers = [
+  { name: 'Member 1', role: 'Working Committee', education: '2nd Year CSE Student', contact: '+91 98765 43210', email: 'member1@example.com', image: '/assets/member1.jpg', social: { fb: '#', insta: '#', linkedin: '#' } },
+  { name: 'Member 2', role: 'Core Committee', education: '3rd Year CSE Student', contact: '+91 98765 43211', email: 'member2@example.com', image: '/assets/member2.jpg', social: { fb: '#', insta: '#', linkedin: '#' } },
+  { name: 'Member 3', role: 'Working Committee', education: '2nd Year CSE Student', contact: '+91 98765 43212', email: 'member3@example.com', image: '/assets/member3.jpg', social: { fb: '#', insta: '#', linkedin: '#' } },
+];
 
 const Contact = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-squid-dark text-white">
       <Navbar />
-      <main className="flex-grow pt-24">
-        <section className="section-padding container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Contact Us</h1>
-            <p className="text-lg text-squid-white/70 max-w-3xl mx-auto">
-              Want to join the games or have questions? Reach out to us using the form below.
-            </p>
+      <main className="flex-grow pt-24 relative">
+        <section className="relative z-10 container mx-auto px-6 text-center">
+          <h1 className="text-5xl font-bold text-white uppercase tracking-wide">Contact Us</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="squid-card p-6 hover:translate-y-[-5px] cursor-pointer relative overflow-hidden group">
+                <div className="h-[200px] mb-4 bg-squid-lightgray/10 flex items-center justify-center rounded-md relative">
+                  <img src={member.image} alt={member.name} className="rounded-full w-24 h-24 object-cover" />
+                </div>
+                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                <p className="text-squid-pink mb-1">{member.role}</p>
+                <p className="text-squid-white/70 mb-2">{member.education}</p>
+                <p className="text-squid-white/80 text-sm">{member.contact}</p>
+                <p className="text-squid-white/80 text-sm">{member.email}</p>
+                <div className="flex gap-3 mt-3">
+                  <a href={member.social.fb} target="_blank" rel="noopener noreferrer"><Facebook className="text-squid-white w-5 h-5 hover:text-squid-pink" /></a>
+                  <a href={member.social.insta} target="_blank" rel="noopener noreferrer"><Instagram className="text-squid-white w-5 h-5 hover:text-squid-pink" /></a>
+                  <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin className="text-squid-white w-5 h-5 hover:text-squid-pink" /></a>
+                  <a href={`mailto:${member.email}`}><Mail className="text-squid-white w-5 h-5 hover:text-squid-pink" /></a>
+                  <a href={`tel:${member.contact}`}><Phone className="text-squid-white w-5 h-5 hover:text-squid-pink" /></a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact Form and Map */}
+        <section className="relative z-10 container mx-auto px-6 mt-16 flex flex-col md:flex-row gap-8">
+          <div className="bg-squid-panel p-8 rounded-xl shadow-lg w-full md:w-1/2">
+            <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Your Name" className="w-full rounded-md bg-gray-800 border border-gray-600 focus:border-squid-pink text-white p-3 focus:outline-none" />
+                <input type="email" placeholder="Your Email" className="w-full rounded-md bg-gray-800 border border-gray-600 focus:border-squid-pink text-white p-3 focus:outline-none" />
+              </div>
+              <textarea placeholder="Your Message" className="w-full rounded-md bg-gray-800 border border-gray-600 focus:border-squid-pink text-white p-3 focus:outline-none h-32"></textarea>
+              <Button variant="primary" className="w-full bg-squid-pink text-white py-3 rounded-md hover:bg-squid-pink-dark transition">Send Message</Button>
+            </form>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="glass-panel p-8 relative">
-              {/* Squid Game invitation card styling */}
-              <div className="absolute top-4 right-4 flex space-x-2">
-                <div className="w-4 h-4 bg-squid-pink rounded-full"></div>
-                <div className="w-4 h-4 border border-squid-pink"></div>
-                <div className="w-4 h-4 border border-squid-pink transform rotate-45"></div>
-              </div>
-              
-              <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-squid-white/70 mb-2">Your Name</label>
-                    <input 
-                      type="text" 
-                      className="w-full rounded-md bg-squid-lightgray/10 border border-squid-lightgray/20 focus:border-squid-pink text-squid-white p-3 focus:outline-none"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-squid-white/70 mb-2">Email Address</label>
-                    <input 
-                      type="email" 
-                      className="w-full rounded-md bg-squid-lightgray/10 border border-squid-lightgray/20 focus:border-squid-pink text-squid-white p-3 focus:outline-none"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-squid-white/70 mb-2">Subject</label>
-                  <input 
-                    type="text" 
-                    className="w-full rounded-md bg-squid-lightgray/10 border border-squid-lightgray/20 focus:border-squid-pink text-squid-white p-3 focus:outline-none"
-                    placeholder="How can we help?"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-squid-white/70 mb-2">Message</label>
-                  <textarea 
-                    className="w-full rounded-md bg-squid-lightgray/10 border border-squid-lightgray/20 focus:border-squid-pink text-squid-white p-3 focus:outline-none h-32"
-                    placeholder="Your message here..."
-                  ></textarea>
-                </div>
-                
-                <div className="flex items-center">
-                  <input id="consent" type="checkbox" className="h-4 w-4 rounded border-squid-lightgray/20 text-squid-pink focus:ring-squid-pink" />
-                  <label htmlFor="consent" className="ml-2 block text-sm text-squid-white/70">
-                    I agree to the terms and conditions
-                  </label>
-                </div>
-                
-                <div>
-                  <Button variant="primary" className="w-full">
-                    Send Message
-                  </Button>
-                </div>
-              </form>
+          {/* Contact Info & Map */}
+          <div className="w-full md:w-1/2 space-y-6">
+            <div className="bg-squid-panel p-6 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+              <p className="flex items-center gap-2"><MapPin /> Future Institute of Engineering and Management, Kolkata</p>
+              <p className="flex items-center gap-2"><Mail /> info@phoenix25.com</p>
+              <p className="flex items-center gap-2"><Phone /> +91 98765 43210</p>
             </div>
-            
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="glass-panel p-8">
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <MapPin className="text-squid-pink w-5 h-5 mt-1 mr-3" />
-                    <div>
-                      <h3 className="font-medium">Our Location</h3>
-                      <p className="text-squid-white/70">123 Tech Street, Innovation District, City, Country</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <Mail className="text-squid-pink w-5 h-5 mt-1 mr-3" />
-                    <div>
-                      <h3 className="font-medium">Email Us</h3>
-                      <p className="text-squid-white/70">info@phoenix25.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <Phone className="text-squid-pink w-5 h-5 mt-1 mr-3" />
-                    <div>
-                      <h3 className="font-medium">Call Us</h3>
-                      <p className="text-squid-white/70">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <Clock className="text-squid-pink w-5 h-5 mt-1 mr-3" />
-                    <div>
-                      <h3 className="font-medium">Working Hours</h3>
-                      <p className="text-squid-white/70">Monday - Friday: 9:00 AM - 5:00 PM</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Google Maps Placeholder */}
-              <div className="glass-panel p-4" style={{ height: '250px' }}>
-                <div className="w-full h-full bg-squid-lightgray/10 flex items-center justify-center rounded-md">
-                  <span className="text-squid-white/40">Google Maps Integration</span>
-                </div>
-              </div>
-              
-              {/* Social Media */}
-              <div className="glass-panel p-8">
-                <h2 className="text-xl font-bold mb-4">Connect With Us</h2>
-                <div className="flex space-x-4">
-                  {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
-                    <a 
-                      key={index}
-                      href="#" 
-                      className="w-10 h-10 rounded-full bg-squid-lightgray/10 flex items-center justify-center transition-colors duration-300 hover:bg-squid-pink/20"
-                    >
-                      <Icon className="w-5 h-5 text-squid-white/70 hover:text-squid-pink" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <iframe src="https://www.google.com/maps/embed?" className="w-full h-64"></iframe>
             </div>
           </div>
         </section>

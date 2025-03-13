@@ -1,53 +1,55 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
-      <main className="flex-grow pt-24">
-        <section className="section-padding container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">About Phoenix 25</h1>
-            <p className="text-lg text-squid-white/70 mb-8">
-              Phoenix 25 - Where innovation meets challenge in a Squid Game-inspired environment.
+      <main className="flex-grow pt-24 relative">
+        <section className="container mx-auto px-6 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-red-500 neon-glow">
+              About Phoenix 25
+            </h1>
+            <p className="text-lg text-gray-300 mb-8 italic">
+              "Where innovation meets challenge in a high-stakes Squid Game-inspired battleground."
             </p>
-            
-            <div className="glass-panel p-6 md:p-8 mb-10">
-              <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-              <p className="text-squid-white/80 mb-4">
-                To create an unforgettable technical festival that pushes participants to their limits while fostering innovation, teamwork, and technical excellence.
-              </p>
-              <p className="text-squid-white/80">
-                Inspired by the high-stakes challenges of Squid Game, we've designed Phoenix 25 to test not just technical skills but also strategy, determination, and the ability to perform under pressure.
-              </p>
-            </div>
-            
-            <div className="glass-panel p-6 md:p-8 mb-10">
-              <h2 className="text-2xl font-semibold mb-4">Past Achievements</h2>
-              <p className="text-squid-white/80 mb-4">
-                Over the years, Phoenix has grown from a small college event to one of the most anticipated technical festivals in the region. Our past editions have:
-              </p>
-              <ul className="list-disc pl-5 space-y-2 text-squid-white/80">
-                <li>Hosted over 5,000 participants from 100+ colleges</li>
-                <li>Featured workshops led by industry experts</li>
-                <li>Showcased cutting-edge technological innovations</li>
-                <li>Provided a platform for startups to present their ideas</li>
-                <li>Created networking opportunities for students and professionals</li>
-              </ul>
-            </div>
-            
-            <div className="glass-panel p-6 md:p-8">
-              <h2 className="text-2xl font-semibold mb-4">Phoenix 25: The New Chapter</h2>
-              <p className="text-squid-white/80 mb-4">
-                This year, we're taking inspiration from the psychological elements of Squid Game to create an event that tests not just what you know, but how you think.
-              </p>
-              <p className="text-squid-white/80">
-                Join us for a festival where each event is a new game, each challenge a new opportunity to prove yourself, and where only the most determined will emerge victorious.
-              </p>
-            </div>
+          </div>
+
+          <div className="glass-panel p-8 md:p-10 mb-10 bg-gray-900/80 backdrop-blur-lg border border-red-500 shadow-red-500 shadow-lg">
+            <h2 className="text-3xl font-semibold mb-4 text-red-400">
+              Our Mission
+            </h2>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              Phoenix is the annual Techno-Management fest of Future Institute of Engineering and Management, organized by XplOriCa. The 19th edition of Phoenix is scheduled on <span className="text-red-400 font-bold">April 12-14</span>, bringing high-energy challenges and immersive experiences inspired by Squid Game.
+            </p>
+          </div>
+
+          <div className="glass-panel p-8 md:p-10 mb-10 bg-gray-900/80 backdrop-blur-lg border border-green-500 shadow-green-500 shadow-lg">
+            <h2 className="text-3xl font-semibold mb-4 text-green-400">
+              Past Achievements
+            </h2>
+            <p className="text-gray-300 mb-4">Over the years, Phoenix has evolved into one of the most anticipated technical fests in the region. Highlights include:</p>
+            <ul className="list-disc pl-5 space-y-2 text-gray-300">
+              <li className="hover:text-green-400 transition">5,000+ participants from 100+ colleges</li>
+              <li className="hover:text-green-400 transition">Workshops led by industry experts</li>
+              <li className="hover:text-green-400 transition">Showcased cutting-edge technological innovations</li>
+              <li className="hover:text-green-400 transition">Startup pitch events for emerging entrepreneurs</li>
+              <li className="hover:text-green-400 transition">Networking opportunities for students & professionals</li>
+            </ul>
+          </div>
+
+          <div className="glass-panel p-8 md:p-10 bg-gray-900/80 backdrop-blur-lg border border-blue-500 shadow-blue-500 shadow-lg">
+            <h2 className="text-3xl font-semibold mb-4 text-blue-400">
+              Phoenix 25: The New Chapter
+            </h2>
+            <p className="text-gray-300 mb-4">
+              This year, Phoenix 25 takes on the psychological elements of Squid Game, pushing limits and testing strategic thinking.
+            </p>
+            <p className="text-gray-300 font-semibold">
+              Every event is a challenge, every challenge is a battle. Only the most strategic will emerge victorious.
+            </p>
           </div>
         </section>
       </main>
