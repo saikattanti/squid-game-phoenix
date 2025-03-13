@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, GitHub, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Github, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -24,7 +23,7 @@ const Footer = () => {
                 <Twitter size={20} />
               </a>
               <a href="#" className="text-squid-white/70 hover:text-squid-pink transition-colors duration-300">
-                <GitHub size={20} />
+                <Github size={20} />
               </a>
             </div>
           </div>
