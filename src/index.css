@@ -67,6 +67,17 @@
     @apply relative overflow-hidden rounded-xl bg-gradient-to-b from-squid-darkgray to-squid-black border border-squid-lightgray/20 transition-all duration-300 hover:border-squid-pink/30 hover:shadow-[0_0_25px_-5px_rgba(255,0,119,0.3)];
   }
 
+  .squid-event-card {
+    @apply squid-card flex flex-col h-full relative overflow-hidden rounded-xl;
+    background: linear-gradient(135deg, #222 0%, #111 100%);
+    border-left: 4px solid theme('colors.squid.green');
+  }
+
+  .squid-event-card::before {
+    content: '';
+    @apply absolute inset-0 bg-squid-texture opacity-5 pointer-events-none;
+  }
+
   .squid-button {
     @apply relative px-6 py-3 font-semibold rounded-md transition-all duration-300 overflow-hidden;
   }
@@ -95,3 +106,4 @@
     @apply text-squid-white after:w-full;
   }
 }
+
