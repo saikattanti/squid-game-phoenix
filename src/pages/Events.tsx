@@ -4,67 +4,8 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CountdownTimer from '@/components/CountdownTimer';
-import { Code, Gamepad, Camera, Briefcase, Ticket, Cpu, Users } from 'lucide-react';
 import Button from '@/components/Button';
-
-const events = [
-  {
-    id: 'hackathon',
-    title: 'Hackathon',
-    description: 'Code or be eliminated! A 24-hour coding marathon where only the best solutions survive.',
-    icon: Code,
-    color: 'bg-blue-500/20 text-blue-400',
-    number: '456'
-  },
-  {
-    id: 'technical',
-    title: 'Technical Events',
-    description: 'Crack the challenge to proceed. A series of technical puzzles that will test your skills to the limit.',
-    icon: Cpu,
-    color: 'bg-purple-500/20 text-purple-400',
-    number: '218'
-  },
-  {
-    id: 'non-technical',
-    title: 'Non-Technical Events',
-    description: 'Fun games with high stakes. These events focus on creativity, teamwork, and thinking outside the box.',
-    icon: Users,
-    color: 'bg-yellow-500/20 text-yellow-400',
-    number: '067'
-  },
-  {
-    id: 'gaming',
-    title: 'Gaming',
-    description: 'Inspired by deadly competitions. Show your gaming prowess in our high-intensity tournaments.',
-    icon: Gamepad,
-    color: 'bg-red-500/20 text-red-400',
-    number: '001'
-  },
-  {
-    id: 'photography',
-    title: 'Photography',
-    description: 'Capture the best moment or be eliminated! A contest where your lens becomes your weapon.',
-    icon: Camera,
-    color: 'bg-emerald-500/20 text-emerald-400',
-    number: '199'
-  },
-  {
-    id: 'management',
-    title: 'Management',
-    description: 'Plan like the Front Man, execute like the players. Test your management and leadership skills.',
-    icon: Briefcase,
-    color: 'bg-amber-500/20 text-amber-400',
-    number: '101'
-  },
-  {
-    id: 'carnival',
-    title: 'Carnival',
-    description: 'A more lively, fun zone inspired by the Squid Game playground. Games, food, and festivities await.',
-    icon: Ticket,
-    color: 'bg-pink-500/20 text-pink-400',
-    number: '212'
-  }
-];
+import { eventCategories } from '@/data/eventData';
 
 const Events = () => {
   // Setting target date to April 4th of the current year or next year if April 4th has passed
@@ -107,7 +48,7 @@ const Events = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event, index) => (
+            {eventCategories.map((event, index) => (
               <Link 
                 key={event.id}
                 to={`/events/${event.id}`}

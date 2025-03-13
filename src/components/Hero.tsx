@@ -7,7 +7,16 @@ import CountdownTimer from './CountdownTimer';
 const Hero = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const targetDate = new Date('2023-12-31'); // Replace with the actual event date
+  
+  // Setting target date to April 4th of the current year or next year if April 4th has passed
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const targetDate = new Date(currentYear, 3, 4); // Month is 0-indexed, so 3 = April
+  
+  // If April 4th has already passed this year, set to next year
+  if (now > targetDate) {
+    targetDate.setFullYear(currentYear + 1);
+  }
   
   useEffect(() => {
     const timer = setTimeout(() => {
