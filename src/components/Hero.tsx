@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import CountdownTimer from './CountdownTimer';
+import BG from '../assets/backgraund.jpg';
+import PL from '../assets/phoenixLOGO.png';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-squid-black"
         style={{
-          backgroundImage: `url('/lovable-uploads/5333d7ff-2882-4a1c-b528-61b83e621fb5.png')`,
+          backgroundImage: `url(${BG})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -44,7 +46,7 @@ const Hero = () => {
       
       {/* Logo in top left */}
       <div className="absolute top-6 left-6 z-20">
-        <img src="/phoenix-logo.png" alt="Phoenix 25" className="w-16 h-16" />
+        <img src="./" alt="Phoenix 25" className="w-16 h-16" />
       </div>
       
       {/* Centered countdown timer */}
