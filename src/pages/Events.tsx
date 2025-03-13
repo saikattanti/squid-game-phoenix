@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CountdownTimer from '@/components/CountdownTimer';
+// import CountdownTimer from '@/components/CountdownTimer';
 import Button from '@/components/Button';
 import { eventCategories } from '@/data/eventData';
 
@@ -31,7 +31,7 @@ const Events = () => {
             </p>
           </div>
           
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
+          {/* <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
             <div className="max-w-sm w-full">
               <CountdownTimer targetDate={targetDate} />
             </div>
@@ -45,7 +45,7 @@ const Events = () => {
                 <Button variant="green" className="w-full">Register Now</Button>
               </div>
             </div>
-          </div>
+          </div> */}
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {eventCategories.map((event, index) => (
@@ -63,7 +63,7 @@ const Events = () => {
                 </div>
                 
                 {/* Red guard mask overlay (hidden by default, shown on hover) */}
-                <div className="absolute inset-0 bg-squid-black/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-xl overflow-hidden">
+                {/* <div className="absolute inset-0 bg-squid-black/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-xl overflow-hidden">
                   <div className="w-32 h-32 relative">
                     <svg viewBox="0 0 100 100" className="w-full h-full text-squid-red">
                       <circle cx="50" cy="35" r="22" fill="currentColor" />
@@ -73,7 +73,7 @@ const Events = () => {
                       JOIN
                     </div>
                   </div>
-                </div>
+                </div> */}
                 
                 <div className="relative z-0 p-6 h-full">
                   <div className={`w-12 h-12 rounded-full ${event.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
