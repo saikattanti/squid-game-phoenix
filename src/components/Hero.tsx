@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import CountdownTimer from './CountdownTimer';
-import { Linkedin, Instagram, Facebook } from 'lucide-react';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -46,19 +45,6 @@ const Hero = () => {
       {/* Logo in top left */}
       <div className="absolute top-6 left-6 z-20">
         <img src="/phoenix-logo.png" alt="Phoenix 25" className="w-16 h-16" />
-      </div>
-      
-      {/* Social media icons in top right */}
-      <div className="absolute top-6 right-6 z-20 flex space-x-6">
-        <a href="#" className="text-squid-white hover:text-squid-pink transition-colors">
-          <Linkedin size={24} />
-        </a>
-        <a href="#" className="text-squid-white hover:text-squid-pink transition-colors">
-          <Instagram size={24} />
-        </a>
-        <a href="#" className="text-squid-white hover:text-squid-pink transition-colors">
-          <Facebook size={24} />
-        </a>
       </div>
       
       {/* Centered countdown timer */}
